@@ -12,6 +12,15 @@
 		41DABFB5230B123F00BFEFBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DABFB3230B123F00BFEFBA /* Main.storyboard */; };
 		41DABFB7230B124000BFEFBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41DABFB6230B124000BFEFBA /* Assets.xcassets */; };
 		41DABFBA230B124000BFEFBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41DABFB8230B124000BFEFBA /* LaunchScreen.storyboard */; };
+		41DABFC3230B127E00BFEFBA /* StoryboardBound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFC2230B127E00BFEFBA /* StoryboardBound.swift */; };
+		41DABFC5230B131A00BFEFBA /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFC4230B131A00BFEFBA /* MainCoordinator.swift */; };
+		41DABFC7230B132200BFEFBA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFC6230B132200BFEFBA /* Coordinator.swift */; };
+		41DABFCB230B14F000BFEFBA /* TerrainPalettes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFC8230B14F000BFEFBA /* TerrainPalettes.swift */; };
+		41DABFCC230B14F000BFEFBA /* ColorPalettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFC9230B14F000BFEFBA /* ColorPalettable.swift */; };
+		41DABFCD230B14F000BFEFBA /* HTMLNamedColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFCA230B14F000BFEFBA /* HTMLNamedColors.swift */; };
+		41DABFCF230B14FC00BFEFBA /* NoiseMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFCE230B14FC00BFEFBA /* NoiseMaker.swift */; };
+		41DABFD1230B150500BFEFBA /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFD0230B150500BFEFBA /* Pixel.swift */; };
+		41DABFD3230B160200BFEFBA /* TerrainGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFD2230B160200BFEFBA /* TerrainGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		41DABFB6230B124000BFEFBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		41DABFB9230B124000BFEFBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41DABFBB230B124000BFEFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		41DABFC2230B127E00BFEFBA /* StoryboardBound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardBound.swift; sourceTree = "<group>"; };
+		41DABFC4230B131A00BFEFBA /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		41DABFC6230B132200BFEFBA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		41DABFC8230B14F000BFEFBA /* TerrainPalettes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainPalettes.swift; sourceTree = "<group>"; };
+		41DABFC9230B14F000BFEFBA /* ColorPalettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalettable.swift; sourceTree = "<group>"; };
+		41DABFCA230B14F000BFEFBA /* HTMLNamedColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLNamedColors.swift; sourceTree = "<group>"; };
+		41DABFCE230B14FC00BFEFBA /* NoiseMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseMaker.swift; sourceTree = "<group>"; };
+		41DABFD0230B150500BFEFBA /* Pixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
+		41DABFD2230B160200BFEFBA /* TerrainGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,13 @@
 		41DABFAE230B123F00BFEFBA /* ProceduralNoiseTerrain */ = {
 			isa = PBXGroup;
 			children = (
+				41DABFD2230B160200BFEFBA /* TerrainGenerator.swift */,
+				41DABFD0230B150500BFEFBA /* Pixel.swift */,
+				41DABFCE230B14FC00BFEFBA /* NoiseMaker.swift */,
+				41DABFC9230B14F000BFEFBA /* ColorPalettable.swift */,
+				41DABFCA230B14F000BFEFBA /* HTMLNamedColors.swift */,
+				41DABFC8230B14F000BFEFBA /* TerrainPalettes.swift */,
+				41DABFC1230B125F00BFEFBA /* CoordinatorFiles */,
 				41DABFAF230B123F00BFEFBA /* AppDelegate.swift */,
 				41DABFB1230B123F00BFEFBA /* ViewController.swift */,
 				41DABFB3230B123F00BFEFBA /* Main.storyboard */,
@@ -62,6 +87,16 @@
 				41DABFBB230B124000BFEFBA /* Info.plist */,
 			);
 			path = ProceduralNoiseTerrain;
+			sourceTree = "<group>";
+		};
+		41DABFC1230B125F00BFEFBA /* CoordinatorFiles */ = {
+			isa = PBXGroup;
+			children = (
+				41DABFC2230B127E00BFEFBA /* StoryboardBound.swift */,
+				41DABFC4230B131A00BFEFBA /* MainCoordinator.swift */,
+				41DABFC6230B132200BFEFBA /* Coordinator.swift */,
+			);
+			path = CoordinatorFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +170,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41DABFD3230B160200BFEFBA /* TerrainGenerator.swift in Sources */,
 				41DABFB2230B123F00BFEFBA /* ViewController.swift in Sources */,
+				41DABFCF230B14FC00BFEFBA /* NoiseMaker.swift in Sources */,
+				41DABFD1230B150500BFEFBA /* Pixel.swift in Sources */,
+				41DABFC5230B131A00BFEFBA /* MainCoordinator.swift in Sources */,
+				41DABFC7230B132200BFEFBA /* Coordinator.swift in Sources */,
+				41DABFCB230B14F000BFEFBA /* TerrainPalettes.swift in Sources */,
+				41DABFCD230B14F000BFEFBA /* HTMLNamedColors.swift in Sources */,
+				41DABFC3230B127E00BFEFBA /* StoryboardBound.swift in Sources */,
 				41DABFB0230B123F00BFEFBA /* AppDelegate.swift in Sources */,
+				41DABFCC230B14F000BFEFBA /* ColorPalettable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
