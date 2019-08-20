@@ -49,8 +49,9 @@ class TerrainGenerator {
         }
         
         let pixelsData = pixels.withUnsafeBufferPointer { Data(buffer: $0) }
-        
-        return SKTexture(data: pixelsData, size: size)
+        let tex = SKTexture(data: pixelsData, size: size)
+       
+        return tex
     }
     
     

@@ -26,10 +26,13 @@ class ViewController: UIViewController, StoryboardBound {
     }
 
     @IBAction func generate(_ sender: Any) {
-        let terrain = TerrainGenerator.generateTerrain(squared: 256)
-        terrain.filteringMode = .nearest
+        let terrain = TerrainGenerator.generateTerrain(squared: 64)
+      
+        spriteNode.size = CGSize(width: 200, height: 200)
+      
         
         spriteNode.texture = SKTexture(cgImage: terrain.cgImage())
+        spriteNode.texture?.filteringMode = .nearest
     }
     @IBAction func save(_ sender: Any) {
     }
@@ -44,7 +47,6 @@ extension ViewController {
         let scene = SKScene(size: skView.bounds.size)
         
         
-        spriteNode.size = CGSize(width: 300, height:  300)
         spriteNode.position = CGPoint(x: skView.bounds.size.width/2, y: skView.bounds.size.height/2)
         
         
@@ -69,3 +71,4 @@ extension ViewController {
         return img
     }
 }
+
