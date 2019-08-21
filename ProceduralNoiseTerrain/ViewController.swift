@@ -23,12 +23,13 @@ class ViewController: UIViewController, StoryboardBound {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setup2DVC()
+      
     }
 
     @IBAction func generate(_ sender: Any) {
-        let terrain = TerrainGenerator.generateTerrain(squared: 64)
+        let terrain = TerrainGenerator.generateTerrain(squared: 256)
       
-        spriteNode.size = CGSize(width: 200, height: 200)
+        spriteNode.size = CGSize(width: 300, height: 300)
       
         
         spriteNode.texture = SKTexture(cgImage: terrain.cgImage())
@@ -44,14 +45,30 @@ extension ViewController {
     
     func setup2DVC() {
         
-        let scene = SKScene(size: skView.bounds.size)
         
+        
+        let scene = SKScene(size: skView.bounds.size)
+        scene.backgroundColor = UIColor.black
+        
+    
+        
+        
+        let particle = SKEmitterNode(fileNamed: "stars.sks")
+        particle?.position = CGPoint(x: 1000, y: 0)
+        particle?.advanceSimulationTime(60)
+        particle?.zPosition = -1
+        scene.addChild(particle!)
         
         spriteNode.position = CGPoint(x: skView.bounds.size.width/2, y: skView.bounds.size.height/2)
+        spriteNode.zPosition = 2
         
         
         scene.addChild(spriteNode)
         scene.scaleMode = .aspectFit
+        
+        
+        
+       
         
         skView.ignoresSiblingOrder = true
         
@@ -70,5 +87,10 @@ extension ViewController {
         }
         return img
     }
-}
+    
+ 
+     
+     
+    }
+
 

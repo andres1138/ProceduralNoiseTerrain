@@ -155,7 +155,7 @@ fileprivate func randomColorPixel() -> Pixel {
      let r = UInt8(GKRandomSource.sharedRandom().nextInt(upperBound: 255))
     let g = UInt8(GKRandomSource.sharedRandom().nextInt(upperBound: 255))
     let b = UInt8(GKRandomSource.sharedRandom().nextInt(upperBound: 255))
-    let a = UInt8(GKRandomSource.sharedRandom().nextInt(upperBound: 255))
+    let a = UInt8(255)
     
     return Pixel(red: r, green: g, blue: b, alpha: a)
 }

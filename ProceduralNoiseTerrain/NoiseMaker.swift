@@ -23,7 +23,7 @@ class NoiseMaker {
     
     static func perlinNoise() -> GKNoise {
         let noiseSource = GKPerlinNoiseSource()
-        noiseSource.frequency = Double(arc4random_uniform(6) + 1)
+        noiseSource.frequency = Double(arc4random_uniform(7) + 1)
         noiseSource.octaveCount = Int(arc4random_uniform(7) + 4)
         noiseSource.persistence = 0.5
         noiseSource.lacunarity = 2.0
