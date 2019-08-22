@@ -22,6 +22,7 @@
 		41DABFCF230B14FC00BFEFBA /* NoiseMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFCE230B14FC00BFEFBA /* NoiseMaker.swift */; };
 		41DABFD1230B150500BFEFBA /* Pixel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFD0230B150500BFEFBA /* Pixel.swift */; };
 		41DABFD3230B160200BFEFBA /* TerrainGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DABFD2230B160200BFEFBA /* TerrainGenerator.swift */; };
+		41F85B09230E44EB0098572F /* SaveImageLocally.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F85B08230E44EB0098572F /* SaveImageLocally.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		41DABFCE230B14FC00BFEFBA /* NoiseMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoiseMaker.swift; sourceTree = "<group>"; };
 		41DABFD0230B150500BFEFBA /* Pixel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pixel.swift; sourceTree = "<group>"; };
 		41DABFD2230B160200BFEFBA /* TerrainGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerrainGenerator.swift; sourceTree = "<group>"; };
+		41F85B08230E44EB0098572F /* SaveImageLocally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveImageLocally.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		41DABFAE230B123F00BFEFBA /* ProceduralNoiseTerrain */ = {
 			isa = PBXGroup;
 			children = (
+				41F85B07230E44A50098572F /* FileWriteSave */,
 				41DABFD2230B160200BFEFBA /* TerrainGenerator.swift */,
 				41DABFD0230B150500BFEFBA /* Pixel.swift */,
 				41DABFCE230B14FC00BFEFBA /* NoiseMaker.swift */,
@@ -100,6 +103,14 @@
 				41DABFC6230B132200BFEFBA /* Coordinator.swift */,
 			);
 			path = CoordinatorFiles;
+			sourceTree = "<group>";
+		};
+		41F85B07230E44A50098572F /* FileWriteSave */ = {
+			isa = PBXGroup;
+			children = (
+				41F85B08230E44EB0098572F /* SaveImageLocally.swift */,
+			);
+			path = FileWriteSave;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 				41DABFC5230B131A00BFEFBA /* MainCoordinator.swift in Sources */,
 				41DABFC7230B132200BFEFBA /* Coordinator.swift in Sources */,
 				41DABFCB230B14F000BFEFBA /* TerrainPalettes.swift in Sources */,
+				41F85B09230E44EB0098572F /* SaveImageLocally.swift in Sources */,
 				41DABFCD230B14F000BFEFBA /* HTMLNamedColors.swift in Sources */,
 				41DABFC3230B127E00BFEFBA /* StoryboardBound.swift in Sources */,
 				41DABFB0230B123F00BFEFBA /* AppDelegate.swift in Sources */,
