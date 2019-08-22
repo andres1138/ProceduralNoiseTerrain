@@ -8,6 +8,8 @@
 
 import UIKit
 import SpriteKit
+import Foundation
+
 
 class ViewController: UIViewController, StoryboardBound {
     
@@ -20,6 +22,7 @@ class ViewController: UIViewController, StoryboardBound {
     
     weak var coordinator: MainCoordinator?
     
+    let fileManager = FileManager.default
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +32,37 @@ class ViewController: UIViewController, StoryboardBound {
     }
     
     @IBAction func generate(_ sender: Any) {
-        let terrain = TerrainGenerator.generateTerrain(squared: 256)
+        let terrain = TerrainGenerator.generateTerrain(squared: 128)
         spriteNode.size = CGSize(width: 250, height: 250)
         spriteNode.texture = SKTexture(cgImage: terrain.cgImage())
         spriteNode.texture?.filteringMode = .nearest
     }
     
     
-   
-    
-    
-    @IBAction func save(_ sender: Any) {
+   @IBAction func save(_ sender: Any) {
         
+        if let image = UIImage(named: "terrain_planet.png") {
+            if let data = image.pngData() {
+                let filename = getDocumentsDirectory().appendingPathComponent("copy.png")
+                try? data.write(to: filename)
+            }
+        }
         
     }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    /*
+    if let image = UIImage(named: "example.png") {
+        if let data = image.jpegData(compressionQuality: 0.8) {
+            let filename = getDocumentsDirectory().appendingPathComponent("copy.png")
+            try? data.write(to: filename)
+        }
+    }
+    */
     
 }
 
@@ -64,6 +84,7 @@ extension ViewController {
     @objc func display() {
         
         DispatchQueue.global(qos: .background).async {
+            
             
             if let savedImage = self.retrieveImage(forKey: "wroteimage", storageType: .fileSystem) {
                 

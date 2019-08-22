@@ -14,15 +14,18 @@ import UIKit
 
 struct EarthTerrainPalette: ColorPalettable {
     
+    static let water2 = Pixel(red: 0, green: 100, blue: 200, alpha: 255)
     static let water = Pixel(red: 0, green: 0, blue: 255, alpha: 255)
     static let beach = Pixel(red: 0, green: 153, blue: 153, alpha: 255)
     static let jungle = Pixel(red: 0, green: 204, blue: 102, alpha: 255)
     static let forest = Pixel(red: 0, green: 204, blue: 0, alpha: 255)
+    static let forest2 = Pixel(red: 0, green: 240, blue: 0, alpha: 255)
     static let savannah = Pixel(red: 204, green: 255, blue: 51, alpha: 255)
     static let desert = Pixel(red: 204, green: 204, blue: 0, alpha: 255)
     static let snow = Pixel(red: 255, green: 255, blue: 255, alpha: 255)
     
     func getColor(from value: Float) -> Pixel {
+        
         switch value {
         case -1.0..<0.0:
             return EarthTerrainPalette.water
