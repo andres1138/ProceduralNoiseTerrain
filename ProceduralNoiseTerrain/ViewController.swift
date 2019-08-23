@@ -16,7 +16,7 @@ class ViewController: UIViewController, StoryboardBound {
     @IBOutlet weak var skView: SKView!
     
     
-    var savedImage: UIImage?
+    var savedImage: UIImageView?
     
     let spriteNode = SKSpriteNode()
     
@@ -40,7 +40,8 @@ class ViewController: UIViewController, StoryboardBound {
     
     
    @IBAction func save(_ sender: Any) {
-        
+    
+        // png verrsion to be saved
         if let image = UIImage(named: "terrain_planet.png") {
             if let data = image.pngData() {
                 let filename = getDocumentsDirectory().appendingPathComponent("copy.png")
@@ -55,6 +56,7 @@ class ViewController: UIViewController, StoryboardBound {
         return paths[0]
     }
     
+    // JPEG version to be saved
     /*
     if let image = UIImage(named: "example.png") {
         if let data = image.jpegData(compressionQuality: 0.8) {
@@ -86,10 +88,11 @@ extension ViewController {
         DispatchQueue.global(qos: .background).async {
             
             
-            if let savedImage = self.retrieveImage(forKey: "wroteimage", storageType: .fileSystem) {
+            if let theSavedImage = self.retrieveImage(forKey: "wroteimage", storageType: .fileSystem) {
                 
                 DispatchQueue.main.async {
-                    ///self.savedImageDisplayImageView.image = savedImage
+                    self.savedImage?.image = theSavedImage
+                    
                 }
             }
         
