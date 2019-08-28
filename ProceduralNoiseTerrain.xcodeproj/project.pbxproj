@@ -57,6 +57,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		415491882317436E002959EA /* ColorPalettes */ = {
+			isa = PBXGroup;
+			children = (
+				41DABFC9230B14F000BFEFBA /* ColorPalettable.swift */,
+				41DABFCA230B14F000BFEFBA /* HTMLNamedColors.swift */,
+				41DABFC8230B14F000BFEFBA /* TerrainPalettes.swift */,
+			);
+			path = ColorPalettes;
+			sourceTree = "<group>";
+		};
+		4154918923174392002959EA /* TerrainGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				41DABFD2230B160200BFEFBA /* TerrainGenerator.swift */,
+			);
+			path = TerrainGenerator;
+			sourceTree = "<group>";
+		};
+		4154918A231743A5002959EA /* Pixel */ = {
+			isa = PBXGroup;
+			children = (
+				41DABFD0230B150500BFEFBA /* Pixel.swift */,
+			);
+			path = Pixel;
+			sourceTree = "<group>";
+		};
+		4154918B231743AD002959EA /* NoiseMaker */ = {
+			isa = PBXGroup;
+			children = (
+				41DABFCE230B14FC00BFEFBA /* NoiseMaker.swift */,
+			);
+			path = NoiseMaker;
+			sourceTree = "<group>";
+		};
+		4154918C231743B8002959EA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				41DABFB1230B123F00BFEFBA /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4154918D231743CF002959EA /* ParticleEmitter */ = {
+			isa = PBXGroup;
+			children = (
+				41D30D19230CB2C000CA70DF /* stars.sks */,
+			);
+			path = ParticleEmitter;
+			sourceTree = "<group>";
+		};
 		41DABFA3230B123F00BFEFBA = {
 			isa = PBXGroup;
 			children = (
@@ -76,21 +126,19 @@
 		41DABFAE230B123F00BFEFBA /* ProceduralNoiseTerrain */ = {
 			isa = PBXGroup;
 			children = (
+				4154918D231743CF002959EA /* ParticleEmitter */,
+				4154918C231743B8002959EA /* Controllers */,
+				4154918B231743AD002959EA /* NoiseMaker */,
+				4154918A231743A5002959EA /* Pixel */,
+				4154918923174392002959EA /* TerrainGenerator */,
+				415491882317436E002959EA /* ColorPalettes */,
 				41F85B07230E44A50098572F /* FileWriteSave */,
-				41DABFD2230B160200BFEFBA /* TerrainGenerator.swift */,
-				41DABFD0230B150500BFEFBA /* Pixel.swift */,
-				41DABFCE230B14FC00BFEFBA /* NoiseMaker.swift */,
-				41DABFC9230B14F000BFEFBA /* ColorPalettable.swift */,
-				41DABFCA230B14F000BFEFBA /* HTMLNamedColors.swift */,
-				41DABFC8230B14F000BFEFBA /* TerrainPalettes.swift */,
 				41DABFC1230B125F00BFEFBA /* CoordinatorFiles */,
 				41DABFAF230B123F00BFEFBA /* AppDelegate.swift */,
-				41DABFB1230B123F00BFEFBA /* ViewController.swift */,
 				41DABFB3230B123F00BFEFBA /* Main.storyboard */,
 				41DABFB6230B124000BFEFBA /* Assets.xcassets */,
 				41DABFB8230B124000BFEFBA /* LaunchScreen.storyboard */,
 				41DABFBB230B124000BFEFBA /* Info.plist */,
-				41D30D19230CB2C000CA70DF /* stars.sks */,
 			);
 			path = ProceduralNoiseTerrain;
 			sourceTree = "<group>";
