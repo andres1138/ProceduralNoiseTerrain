@@ -128,17 +128,17 @@ struct RandomHTMLTerrainPalette: ColorPalettable {
         
         switch value {
         case -1.0..<0.0:
-            return RandomTerrainPalette1.twater
+            return RandomHTMLTerrainPalette.twater
         case 0.0..<0.15:
-            return RandomTerrainPalette1.tbeach
+            return RandomHTMLTerrainPalette.tbeach
         case 0.15..<0.3:
-            return RandomTerrainPalette1.tjungle
+            return RandomHTMLTerrainPalette.tjungle
         case 0.3..<0.6:
-            return RandomTerrainPalette1.tforest
+            return RandomHTMLTerrainPalette.tforest
         case 0.6..<0.7:
-            return RandomTerrainPalette1.tsavannah
+            return RandomHTMLTerrainPalette.tsavannah
         case 0.7..<0.9:
-            return RandomTerrainPalette1.tdesert
+            return RandomHTMLTerrainPalette.tdesert
         default:
             return RandomTerrainPalette1.tsnow
         }
@@ -148,6 +148,40 @@ struct RandomHTMLTerrainPalette: ColorPalettable {
 }
 
 
+
+struct RandomHTMLTerrainPalette2: ColorPalettable {
+    
+    static let twater = convertHexToPixel(randomHTMLColor())
+    static let tbeach = convertHexToPixel(randomHTMLColor())
+    static let tjungle = convertHexToPixel(randomHTMLColor())
+    static let tforest = convertHexToPixel(randomHTMLColor())
+    static let tsavannah = convertHexToPixel(randomHTMLColor())
+    static let tdesert = convertHexToPixel(randomHTMLColor())
+    static let tsnow = convertHexToPixel(randomHTMLColor())
+    
+    
+    func getColor(from value: Float) -> Pixel {
+        
+        switch value {
+        case -1.0..<0.0:
+            return RandomHTMLTerrainPalette2.twater
+        case 0.0..<0.15:
+            return RandomHTMLTerrainPalette2.tbeach
+        case 0.15..<0.3:
+            return RandomHTMLTerrainPalette2.tjungle
+        case 0.3..<0.6:
+            return RandomHTMLTerrainPalette2.tforest
+        case 0.6..<0.7:
+            return RandomHTMLTerrainPalette2.tsavannah
+        case 0.7..<0.9:
+           return RandomHTMLTerrainPalette2.tdesert
+        default:
+            return RandomHTMLTerrainPalette2.tsnow
+        }
+    }
+    
+    
+}
 
 
 

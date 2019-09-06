@@ -32,7 +32,7 @@ class ViewController: UIViewController, StoryboardBound {
     }
     
     @IBAction func generate(_ sender: Any) {
-        let terrain = TerrainGenerator.generateTerrain(squared: 128)
+        let terrain = TerrainGenerator.generateTerrain(squared: 256)
         spriteNode.size = CGSize(width: 250, height: 250)
         spriteNode.texture = SKTexture(cgImage: terrain.cgImage())
         spriteNode.texture?.filteringMode = .nearest
@@ -41,13 +41,8 @@ class ViewController: UIViewController, StoryboardBound {
     
    @IBAction func save(_ sender: Any) {
     
-        // png verrsion to be saved
-        if let image = UIImage(named: "terrain_planet.png") {
-            if let data = image.pngData() {
-                let filename = getDocumentsDirectory().appendingPathComponent("copy.png")
-                try? data.write(to: filename)
-            }
-        }
+    saveImageToDocumentDirectory(image: saveImageRendered(from: skView))
+    
         
     }
     
@@ -56,49 +51,10 @@ class ViewController: UIViewController, StoryboardBound {
         return paths[0]
     }
     
-    // JPEG version to be saved
-    /*
-    if let image = UIImage(named: "example.png") {
-        if let data = image.jpegData(compressionQuality: 0.8) {
-            let filename = getDocumentsDirectory().appendingPathComponent("copy.png")
-            try? data.write(to: filename)
-        }
-    }
-    */
+  
     
 }
 
-
-
-extension ViewController {
-    
-    @objc func saveImage() {
-        
-        if let buildingImage = UIImage(named: "planet") {
-           
-            DispatchQueue.global(qos: .background).async {
-                self.store(image: buildingImage, forKey: "wroteimage", storageType: .fileSystem)
-            }
-        
-        }
-    }
-    
-    @objc func display() {
-        
-        DispatchQueue.global(qos: .background).async {
-            
-            
-            if let theSavedImage = self.retrieveImage(forKey: "wroteimage", storageType: .fileSystem) {
-                
-                DispatchQueue.main.async {
-                    self.savedImage?.image = theSavedImage
-                    
-                }
-            }
-        
-        }
-    }
-}
 
 
 extension ViewController {
@@ -135,64 +91,46 @@ extension ViewController {
     }
     
     
-    
-    private func store(image: UIImage, forKey key: String, storageType: StorageType) {
-       
-        if let pngRepresentation = image.pngData() {
-           
-            switch storageType {
-            
-            case .fileSystem:
-                
-                if let filePath = filePath(forKey: key) {
-                    
-                    do  {
-                        try pngRepresentation.write(to: filePath, options: .atomic)
-                   
-                    } catch let error {
-                        print("ERROR SAVING FILE: ", error)
-                    }
-                }
-            
-            case .userDefaults:
-                UserDefaults.standard.set(pngRepresentation, forKey: key)
+    func saveImageToDocumentDirectory(image: UIImage) {
+        var objCBool: ObjCBool = true
+        let mainPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
+        let folderPath = mainPath + "/Screenshots/"
+        
+        let isExist = FileManager.default.fileExists(atPath: folderPath, isDirectory: &objCBool)
+        if !isExist {
+            do {
+                try FileManager.default.createDirectory(atPath: folderPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print(error)
+            }
+        }
+        
+        let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        print("\(documentDirectory)")
+        let imageName = "planet.png"
+        let imageUrl = documentDirectory.appendingPathComponent("Screenshots/\(imageName)")
+        if let data = image.pngData() {
+            do {
+                try data.write(to: imageUrl)
+                print("Image Saved")
+            } catch {
+                print("error saving", error)
             }
         }
     }
     
-    private func retrieveImage(forKey key: String, storageType: StorageType) -> UIImage? {
-       
-        switch storageType {
-        
-        case .fileSystem:
-            
-            if let filePath = self.filePath(forKey: key),
-                let fileData = FileManager.default.contents(atPath: filePath.path),
-                let image = UIImage(data: fileData) {
-                return image
-            }
-        
-        case .userDefaults:
-            
-            if let imageData = UserDefaults.standard.object(forKey: key) as? Data,
-                let image = UIImage(data: imageData) {
-                return image
-            }
+    
+    func loadImageFromDocumentDirectory(nameOfImage : String) -> UIImage {
+        let nsDocumentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let nsUserDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let paths = NSSearchPathForDirectoriesInDomains(nsDocumentDirectory, nsUserDomainMask, true)
+        if let dirPath = paths.first{
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("Screenshots/\(nameOfImage)")
+            guard let image = UIImage(contentsOfFile: imageURL.path) else { return  UIImage.init(named: "fulcrumPlaceholder")!}
+            return image
         }
-        
-        return nil
+        return UIImage.init(named: "imageDefaultPlaceholder")!
     }
-    
-    
-    private func filePath(forKey key: String) -> URL?  {
-        let fileManager = FileManager.default
-        
-        guard let docURL = fileManager.urls(for: .documentDirectory,
-                                            in: FileManager.SearchPathDomainMask.userDomainMask).first else { return nil }
-        
-        return docURL.appendingPathComponent(key + ".png")
-    }
-    
 }
 
 

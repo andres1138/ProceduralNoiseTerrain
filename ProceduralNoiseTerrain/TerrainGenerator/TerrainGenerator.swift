@@ -15,7 +15,7 @@ import UIKit
 
 class TerrainGenerator {
     
- private static let terrainPalettes: [ColorPalettable] = [EarthTerrainPalette(), RandomTerrainPalette(), RandomTerrainPalette1(),RandomHTMLTerrainPalette()]
+ private static let terrainPalettes: [ColorPalettable] = [EarthTerrainPalette(), RandomTerrainPalette(), RandomTerrainPalette1(),RandomHTMLTerrainPalette(), RandomHTMLTerrainPalette2()]
     //private static let terrainPalettes: [ColorPalettable] = [RandomHTMLTerrainPalette()]
 
     
