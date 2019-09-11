@@ -13,11 +13,16 @@ import UIKit
 
 
 
+
+
+
+
 class TerrainGenerator {
     
  private static let terrainPalettes: [ColorPalettable] = [EarthTerrainPalette(), RandomTerrainPalette(), RandomTerrainPalette1(),RandomHTMLTerrainPalette(), RandomHTMLTerrainPalette2()]
     //private static let terrainPalettes: [ColorPalettable] = [RandomHTMLTerrainPalette()]
 
+    
     
     static func generateTerrain(squared side: Int = 256, colorPalette: ColorPalettable? = nil) -> SKTexture {
       var pixels = [Pixel]()
@@ -72,6 +77,71 @@ class TerrainGenerator {
             for y in 0..<side {
                 
                let medX = Float(x) / floatSide - 0.5
+                
+                let medY = Float(y) / floatSide - 0.5
+                
+                let terrainColors = Float(noise.value(atPosition: vector_float2(medX, medY)))
+                
+                pixels.append(palette.getColor(from: terrainColors))
+            }
+        }
+        
+        let pixelsData = pixels.withUnsafeBufferPointer { Data(buffer: $0) }
+        
+        return SKTexture(data: pixelsData, size: size)
+    }
+    
+    
+    
+    static func generateBillowNoise(squared side: Int = 256, colorPalette: ColorPalettable? = nil) -> SKTexture {
+        var pixels = [Pixel]()
+        
+        let floatSide = Float(side)
+        let size = CGSize(width: side, height: side)
+        
+        
+        let randomNum = GKRandomSource.sharedRandom().nextInt(upperBound: terrainPalettes.count)
+        let palette = colorPalette ?? terrainPalettes[randomNum]
+        let noise =  NoiseMaker.billowNoise()
+        
+        for x in 0..<side {
+            
+            
+            for y in 0..<side {
+                
+                let medX = Float(x) / floatSide - 0.5
+                
+                let medY = Float(y) / floatSide - 0.5
+                
+                let terrainColors = Float(noise.value(atPosition: vector_float2(medX, medY)))
+                
+                pixels.append(palette.getColor(from: terrainColors))
+            }
+        }
+        
+        let pixelsData = pixels.withUnsafeBufferPointer { Data(buffer: $0) }
+        
+        return SKTexture(data: pixelsData, size: size)
+    }
+    
+    
+    static func generateVoronoiNoise(squared side: Int = 256, colorPalette: ColorPalettable? = nil) -> SKTexture {
+        var pixels = [Pixel]()
+        
+        let floatSide = Float(side)
+        let size = CGSize(width: side, height: side)
+        
+        
+        let randomNum = GKRandomSource.sharedRandom().nextInt(upperBound: terrainPalettes.count)
+        let palette = colorPalette ?? terrainPalettes[randomNum]
+        let noise =  NoiseMaker.voronoiNoise()
+        
+        for x in 0..<side {
+            
+            
+            for y in 0..<side {
+                
+                let medX = Float(x) / floatSide - 0.5
                 
                 let medY = Float(y) / floatSide - 0.5
                 

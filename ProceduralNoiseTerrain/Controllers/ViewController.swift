@@ -28,12 +28,14 @@ class ViewController: UIViewController, StoryboardBound {
         super.viewDidLoad()
        
         setup2DVC()
+        skView.contentMode = .scaleAspectFit
         
     }
     
     @IBAction func generate(_ sender: Any) {
-        let terrain = TerrainGenerator.generateTerrain(squared: 256)
-        spriteNode.size = CGSize(width: 250, height: 250)
+        let terrain = TerrainGenerator.generateTerrain()
+        //let terrain = TerrainGenerator.generateTerrainFlat(squared: 256)
+        spriteNode.size = CGSize(width: self.skView.bounds.size.width - 100, height:  self.skView.bounds.size.width - 100)
         spriteNode.texture = SKTexture(cgImage: terrain.cgImage())
         spriteNode.texture?.filteringMode = .nearest
     }
