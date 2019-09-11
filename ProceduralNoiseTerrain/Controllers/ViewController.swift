@@ -63,12 +63,8 @@ extension ViewController {
     func setup2DVC() {
         let scene = SKScene(size: skView.bounds.size)
         scene.backgroundColor = UIColor.black
-        
-        let particle = SKEmitterNode(fileNamed: "stars.sks")
-        particle?.position = CGPoint(x: 1000, y: 0)
-        particle?.advanceSimulationTime(60)
-        particle?.zPosition = -1
-        scene.addChild(particle!)
+      
+        addStars(in: scene)
         
         spriteNode.position = CGPoint(x: skView.bounds.size.width/2, y: skView.bounds.size.height/2)
         spriteNode.zPosition = 2
@@ -78,6 +74,15 @@ extension ViewController {
         
         skView.ignoresSiblingOrder = true
         skView.presentScene(scene)
+    }
+    
+    
+    func addStars(in scene: SKScene) {
+        let particle = SKEmitterNode(fileNamed: "stars.sks")
+        particle?.position = CGPoint(x: 1000, y: 0)
+        particle?.advanceSimulationTime(60)
+        particle?.zPosition = -1
+        scene.addChild(particle!)
     }
     
     
